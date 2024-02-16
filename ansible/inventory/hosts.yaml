@@ -3,3 +3,23 @@ kubernetes:
   children:
     controllers:
       hosts:
+        "kube-master-msi-1":
+          ansible_user: "mint"
+          ansible_host: "192.168.86.200"
+        "kube-master-msi-2":
+          ansible_user: "mint"
+          ansible_host: "192.168.86.201"
+        "kube-master-dell-1":
+          ansible_user: "mint"
+          ansible_host: "192.168.86.204"
+    workers:
+      hosts:
+        "kube-worker-msi-1":
+          ansible_user: "mint"
+          ansible_host: "192.168.86.202"
+        "kube-worker-dell-1":
+          ansible_user: "mint"
+          ansible_host: "192.168.86.203"
+        "kube-worker-msi-2":
+          ansible_user: "mint"
+          ansible_host: "192.168.86.205"
