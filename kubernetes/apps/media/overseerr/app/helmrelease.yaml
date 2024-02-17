@@ -54,7 +54,8 @@ spec:
       overseerr-nfs:
         existingClaim: overseerr-nfs-pvc
         globalMounts:
-          - path: /app/config/overseerr
+          - path: /app/config
+            subPath: overseerr
     ingress:
       main:
         enabled: true
