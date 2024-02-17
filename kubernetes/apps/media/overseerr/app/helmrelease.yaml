@@ -51,7 +51,7 @@ spec:
           http:
             port: 5055
     persistence:
-      appdata:
+      overseerr-nfs:
         existingClaim: overseerr-nfs
         globalMounts:
           - path: /app/config/overseerr
