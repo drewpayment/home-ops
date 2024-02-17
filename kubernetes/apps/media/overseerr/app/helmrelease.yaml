@@ -52,10 +52,9 @@ spec:
             port: 5055
     persistence:
       config:
-        enabled: true
         existingClaim: appdata
-        mountPath: /app/config
-        subPath: overseerr
+        globalMounts:
+          - path: /app/config/overseerr
     ingress:
       main:
         enabled: true
