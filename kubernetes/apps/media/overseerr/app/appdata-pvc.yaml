@@ -32,7 +32,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: overseerr-db
+  storageClassName: overseerr-nfs
   resources:
     requests:
       storage: 10G
