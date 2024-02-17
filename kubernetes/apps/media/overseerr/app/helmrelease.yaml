@@ -24,18 +24,27 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-  dependsOn:
-    - name: ingress-nginx
-      namespace: networking
   values:
     controllers:
       main:
-        image:
-          repository: docker.io/sctx/overseerr
-          tag: latest
-        env:
-          TZ: ${TIMEZONE}
-          LOG_LEVEL: debug
+        type: statefulset
+        annotations:
+          reloader.stakater.com/auto: 'true'
+        containers:
+          main:
+            image:
+              repository: docker.io/sctx/overseerr
+              tag: latest
+            env:
+              TZ: ${TIMEZONE}
+              LOG_LEVEL: debug
+
+            resources:
+              requests:
+                cpu: 5m
+                memory: 50Mi
+              limits:
+                memory: 850Mi
     service:
       main:
         ports:
