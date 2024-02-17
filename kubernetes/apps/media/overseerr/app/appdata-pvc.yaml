@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: overseerr-appdata-nfs
+  name: overseerr-nfs-pv
 spec:
   capacity:
     storage: 10G
@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: overseerr-nfs
+  name: overseerr-nfs-pvc
   namespace: media
 spec:
   accessModes:
