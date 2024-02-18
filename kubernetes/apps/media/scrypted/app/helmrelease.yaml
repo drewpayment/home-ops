@@ -73,7 +73,7 @@ spec:
         globalMounts:
           - path: /.npm
 
-  fullNameOverride: *app
-  podAnnotations:
-    reloader.stakater.com/auto: 'true'
-    setGateway: 'true'
+    fullNameOverride: *app
+    podAnnotations:
+      reloader.stakater.com/auto: 'true'
+      setGateway: 'true'
