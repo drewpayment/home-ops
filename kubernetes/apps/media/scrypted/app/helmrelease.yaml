@@ -23,7 +23,6 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-
   values:
     controllers:
       main:
@@ -35,16 +34,8 @@ spec:
             image:
               repository: ghcr.io/koush/scrypted
               tag: 18-jammy-full.s6-v0.68.0
-
             env:
               TZ: America/New_York
-
-            resources:
-              requests:
-                cpu: 5m
-                memory: 50Mi
-              limits:
-                memory: 850Mi
     service:
       main:
         ports:
@@ -70,8 +61,6 @@ spec:
           - hosts:
               - *host
 
-    fullNameOverride: *app
-
     podSecurityContext:
       runAsUser: 1000
       runAsGroup: 1000
@@ -83,3 +72,8 @@ spec:
         existingClaim: scrypted-nfs-pvc
         globalMounts:
           - path: /.npm
+
+  fullNameOverride: *app
+  podAnnotations:
+    reloader.stakater.com/auto: 'true'
+    setGateway: 'true'
