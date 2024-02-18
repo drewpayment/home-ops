@@ -19,7 +19,7 @@ spec:
     - nodiratime
     - nolock
   nfs:
-    path: /mnt/tank/db/scrypted
+    path: /mnt/tank/db
     server: 192.168.86.44
 
 ---
