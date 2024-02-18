@@ -35,8 +35,16 @@ spec:
             image:
               repository: ghcr.io/koush/scrypted
               tag: 18-jammy-full.s6-v0.68.0
+
             env:
               TZ: America/New_York
+
+            resources:
+              requests:
+                cpu: 5m
+                memory: 50Mi
+              limits:
+                memory: 850Mi
     service:
       main:
         ports:
@@ -51,7 +59,7 @@ spec:
           external-dns.home.arpa/enabled: "true"
           hajimari.io/icon: camera-wireless
         hosts:
-          - host: &host "scrypted.${SECRET_DOMAIN}"
+          - host: &host scrypted.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
@@ -62,6 +70,8 @@ spec:
           - hosts:
               - *host
 
+    fullNameOverride: *app
+
     podSecurityContext:
       runAsUser: 1000
       runAsGroup: 1000
@@ -69,15 +79,7 @@ spec:
       fsGroupChangePolicy: OnRootMismatch
 
     persistence:
-      cache:
-        enabled: true
+      scrypted-nfs:
+        existingClaim: scrypted-nfs-pvc
         globalMounts:
           - path: /.npm
-            type: emptyDir
-
-    volumeClaimTemplates:
-      - name: config
-        mountPath: /server/volume
-        accessMode: ReadWriteOnce
-        size: 100Gi
-        storageClass: local-path
