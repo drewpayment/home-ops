@@ -54,6 +54,7 @@ spec:
             port: 3000
     ingress:
       main:
+        enabled: true
         className: external
         annotations:
           hajimari.io/appName: Stacks
