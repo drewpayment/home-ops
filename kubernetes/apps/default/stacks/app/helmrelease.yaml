@@ -39,7 +39,7 @@ spec:
               pullPolicy: IfNotPresent
               tag: latest
             imagePullSecrets:
-              - name: ghcr-pat-secret
+            - name: dockerconfigjson
             strategy:
               type: Recreate
             env:
