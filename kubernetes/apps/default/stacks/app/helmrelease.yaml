@@ -31,15 +31,15 @@ spec:
       main:
         type: statefulset
         annotations:
-          reloader.stakater.com/auto: 'true'
+          reloader.stakater.com/auto: "true"
         containers:
           main:
             image:
               repository: ghcr.io/drewpayment/stacks
-              pullPolicy: IfNotPresent
+              pullPolicy: Always
               tag: latest
             imagePullSecrets:
-            - name: ghcr-pat-secret
+              - name: ghcr-pat-secret
             strategy:
               type: Recreate
             env:
@@ -74,5 +74,5 @@ spec:
 
     fullNameOverride: *app
     podAnnotations:
-      reloader.stakater.com/auto: 'true'
-      setGateway: 'true'
+      reloader.stakater.com/auto: "true"
+      setGateway: "true"
