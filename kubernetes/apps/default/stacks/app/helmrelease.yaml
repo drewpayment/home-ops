@@ -27,6 +27,9 @@ spec:
   # dependsOn:
   #   - name: stacks-api
   values:
+    defaultPodOptions:
+      imagePullSecrets:
+        - name: ghcr-pat-secret
     controllers:
       main:
         type: statefulset
@@ -38,8 +41,6 @@ spec:
               repository: ghcr.io/drewpayment/stacks
               pullPolicy: Always
               tag: latest
-            imagePullSecrets:
-              - name: ghcr-pat-secret
             strategy:
               type: Recreate
             env:
