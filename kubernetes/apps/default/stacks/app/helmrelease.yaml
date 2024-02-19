@@ -38,6 +38,8 @@ spec:
               repository: ghcr.io/drewpayment/stacks
               pullPolicy: IfNotPresent
               tag: latest
+            imagePullSecrets:
+              - name: ghcr-pat-secret
             strategy:
               type: Recreate
             env:
