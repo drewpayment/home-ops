@@ -29,10 +29,9 @@ spec:
   values:
     defaultPodOptions:
       imagePullSecrets:
-        - name: ghcr-pat-secret
+      - name: ghcr-pat-secret
     controllers:
       main:
-        type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
         containers:

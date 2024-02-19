@@ -8,6 +8,6 @@ fi
 
 export SOPS_AGE_KEY_FILE=$(pwd)/age.key
 
-sops --decrypt --in-place $1
+sops --decrypt --ignore-mac --in-place $1
 
 exit 0
