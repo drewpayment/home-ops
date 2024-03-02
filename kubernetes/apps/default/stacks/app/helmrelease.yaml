@@ -38,8 +38,8 @@ spec:
           main:
             image:
               repository: ghcr.io/drewpayment/stacks
-              pullPolicy: Always
-              tag: latest
+              pullPolicy: IfNotPresent
+              tag: latest@sha256:efb7d6c2c62e40bcfdc98b2c8d982a6f46986663779d33ed255d963408dd979d
             strategy:
               type: Recreate
             env:
